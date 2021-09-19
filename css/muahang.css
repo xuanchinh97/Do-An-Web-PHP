@@ -2,15 +2,15 @@
 	margin-top:15px;
 	}
 #checkout table{
-	font-size:12px;
+	font-size:14px;
 	margin:15px 0;
 	}	
 #checkout table thead th{
-	color:#000;
+	color:var(--color-black);
 	text-transform:capitalize;
 	}
 #checkout table tr td span{
-	color:#C40000;
+	color:var(--color-pri);
 	}	
 #custom-form{
 	padding:0;

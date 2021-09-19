@@ -4,7 +4,7 @@
 #product h3 {
   font-size: 18px;
   font-weight: bold;
-  color: #000;
+  color: var(--color-black);
   margin: 0 0 20px 0;
 }
 #product p span.sl {
@@ -23,7 +23,7 @@
   font-size: 15px;
 }
 .sr {
-  color: #c40000;
+  color: var(--color-pri);
   font-weight: bold;
 }
 #product button {
@@ -55,14 +55,14 @@
   padding: 15px 0;
 }
 #comments ul {
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted var(--color-border);
 }
 #comments ul li {
   list-style: none;
 }
 #comments ul li.comm-name {
   font-weight: bold;
-  color: #000;
+  color: var(--color-black);
 }
 #comments ul li.comm-details {
   line-height: 18px;
@@ -89,7 +89,7 @@ ul.pagination {
   border-bottom-right-radius: 0;
 }
 #pagination a {
-  color: #000;
+  color: var(--color-black);
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -97,8 +97,8 @@ ul.pagination {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background: #c40000;
-  border-color: #c40000;
+  background: var(--color-pri);
+  border-color: var(--color-pri);
 }
 
 .product-info--continue {
@@ -114,6 +114,6 @@ ul.pagination {
 }
 
 .hide-content {
-    height: 300px;
-    overflow: hidden;
-  }
+  height: 300px;
+  overflow: hidden;
+}

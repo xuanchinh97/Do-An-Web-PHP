@@ -6,6 +6,7 @@ $row = mysqli_fetch_array($query);
 ?>
 
 <div id="product">
+    <h2 class="h2-bar">Chi Tiết Sản Phẩm</h2>
     <div id="prd-thumb" class="col-md-6 col-sm-12 col-xs-12 text-center">
         <img width="220px" src="quantri/anh/<?php echo $row['anh_sp']; ?>">
     </div>

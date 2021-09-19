@@ -6,7 +6,7 @@
 }
 #cart th {
   font-size: 14px;
-  color: #000;
+  color: var(--color-black);
   text-transform: capitalize;
 }
 .table > tbody > tr > td,
@@ -17,7 +17,7 @@
   font-size: 14px !important;
 }
 #cart td span {
-  color: #c40000;
+  color: var(--color-pri);
 }
 .btn-sm,
 .btn-group-sm > .btn {
@@ -49,8 +49,8 @@
     min-width: 320px;
   }
   table#cart tbody tr td:first-child {
-    background: #333;
-    color: #fff;
+    background: var(--color-border);
+    color: var(--color-white);
   }
   table#cart tbody td:before {
     content: attr(data-th);

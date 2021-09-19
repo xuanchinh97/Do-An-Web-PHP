@@ -29,9 +29,9 @@
     ?>
     <tr>
         <td><?php echo $row['ten_sp']; ?></td>
-        <td><span><?php echo $row['gia_sp']; ?></span></td>
+        <td><span><?php echo number_format($row['gia_sp']); ?></span></td>
         <td><?php echo $_SESSION['giohang'][$row['id_sp']]; ?></td>
-        <td><span><?php echo $totalPrice; ?></span></td>
+        <td><span><?php echo number_format($totalPrice); ?></span></td>
     </tr>
     <?php
         $totalPriceAll+=$totalPrice;  
@@ -40,7 +40,7 @@
     <tr>
         <td>Tổng giá trị hóa đơn:</td>
         <td colspan="2"></td>
-        <td><b><span><?php echo $totalPriceAll; ?></span></b></td>
+        <td><b><span><?php echo number_format($totalPriceAll); ?></span></b></td>
     </tr>
 </table>
 </div>
@@ -97,7 +97,7 @@
             $strBody .= '<tr>
                 <td class="prd-name">Tổng giá trị hóa đơn là:</td>
                 <td colspan="2"></td>
-                <td class="prd-total"><b><font color="#C40000">'.$totalPriceAll.' VNĐ</font></b></td>
+                <td class="prd-total"><b><font color="#C40000">'.$number_format($totalPriceAll).' VNĐ</font></b></td>
             </tr>
         </table>';
 
