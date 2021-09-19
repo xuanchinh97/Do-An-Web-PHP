@@ -17,7 +17,6 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  margin-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: var(--color-text);
@@ -38,9 +37,8 @@ body {
 }
 #header {
   width: 100%;
-  border-top: 3px solid var(--color-pri);
-  border-bottom: 1px solid var(--color-border);
-  padding: 2px 10px;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-pri);
   box-sizing: content-box;
 }
 #search {
@@ -281,6 +279,7 @@ transform: scale(1.1);
   text-align: center;
   text-transform: uppercase;
   padding: 10px;
+  font-size: medium;
 }
 #footer-main p {
   color: var(--color-black);

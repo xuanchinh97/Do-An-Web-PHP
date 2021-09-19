@@ -33,7 +33,7 @@
                 <!-- Product Item -->
                 <?php
                 $totalPriceAll = 0;
-                while ($row = mysqli_fetch_array($query,MYSQLI_ASSOC)) {
+                while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                     $totalPrice = $row['gia_sp'] * $_SESSION['giohang'][$row['id_sp']];
                 ?>
                     <tbody>
@@ -46,11 +46,11 @@
                                     </div>
                                 </div>
                             </td>
-                            <td data-th="Price"><?php echo $row['gia_sp']; ?></td>
+                            <td data-th="Price"><?php echo number_format($row['gia_sp']); ?></td>
                             <td data-th="Quantity">
                                 <input name="sl[<?php echo $row['id_sp']; ?>]" type="number" min="0" class="form-control text-center" value="<?php echo $_SESSION['giohang'][$row['id_sp']]; ?>">
                             </td>
-                            <td data-th="Subtotal" class="text-center"><span><?php echo $totalPrice; ?></span></td>
+                            <td data-th="Subtotal" class="text-center"><span><?php echo number_format($totalPrice); ?></span></td>
                             <td class="actions" data-th="">
                                 <a href="./chucnang/giohang/xoahang.php?id_sp=<?php echo $row['id_sp']; ?>">Xóa</a>
                             </td>
@@ -63,7 +63,7 @@
                 <!-- End Product Item -->
                 <tfoot>
                     <tr class="visible-xs">
-                        <td class="text-center"><strong>Total <span><?php echo $totalPriceAll; ?></span></strong></td>
+                        <td class="text-center"><strong>Total <span><?php echo number_format($totalPriceAll); ?></span></strong></td>
                     </tr>
                     <tr>
                         <td>
@@ -74,7 +74,7 @@
                         <td colspan="2" class="hidden-xs">
                             <a class="btn btn-default" href="./chucnang/giohang/xoahang.php?id_sp=0">Xóa hết sản phẩm</a>
                         </td>
-                        <td class="hidden-xs text-center"><strong>Tổng tiền giỏ hàng: <span><?php echo $totalPriceAll; ?></span></strong></td>
+                        <td class="hidden-xs text-center"><strong>Tổng tiền giỏ hàng: <span><?php echo number_format($totalPriceAll); ?></span></strong></td>
                         <td><a href="index.php?page_layout=muahang" class="btn btn-success btn-block">Thanh toán</a></td>
                     </tr>
                 </tfoot>

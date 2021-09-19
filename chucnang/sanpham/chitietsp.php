@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($query);
     </div>
     <div id="prd-intro" class="col-md-6 col-sm-12 col-xs-12">
         <h3><?php echo $row['ten_sp']; ?></h3>
-        <p id="prd-price"><span class="sl">Giá sản phẩm:</span> <span class="sr"><?php echo $row['gia_sp']; ?> VNĐ</span></p>
+        <p id="prd-price"><span class="sl">Giá sản phẩm:</span> <span class="sr"><?php echo number_format($row['gia_sp']); ?> VNĐ</span></p>
         <p><span class="sl">Bảo hành:</span><?php echo $row['bao_hanh']; ?></p>
         <p><span class="sl">Đi kèm:</span><?php echo $row['phu_kien']; ?></p>
         <p><span class="sl">Tình trạng:</span><?php echo $row['tinh_trang']; ?></p>

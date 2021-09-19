@@ -13,7 +13,7 @@
             <a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row['id_sp']; ?>"><img width="190" height="160" src="quantri/anh/<?php echo $row['anh_sp']; ?>"></a>
             <h3><a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row['id_sp']; ?>"><?php echo $row['ten_sp']; ?></a></h3>
             <!-- <p><?php echo $row['tinh_trang']; ?></p> -->
-            <p class="price"><?php echo $row['gia_sp']; ?> ₫</p>
+            <p class="price"><?php echo number_format($row['gia_sp']) ; ?> ₫</p>
         </div>
         <?php
             }
@@ -36,7 +36,7 @@
             <a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row2['id_sp']; ?>"><img width="190" height="160" src="quantri/anh/<?php echo $row2['anh_sp']; ?>"></a>
             <h3><a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row2['id_sp']; ?>"><?php echo $row2['ten_sp']; ?></a></h3>
             <!-- <p>Tình trạng: <?php echo $row2['tinh_trang']; ?></p> -->
-            <p class="price">Giá: <?php echo $row2['gia_sp']; ?> ₫</p>
+            <p class="price">Giá: <?php echo number_format($row2['gia_sp']); ?> ₫</p>
         </div>
         <?php  
             }
