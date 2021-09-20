@@ -55,7 +55,7 @@ include_once './cauhinh/ketnoi.php';
     <div class="container">
         <!-- Header -->
         <div id="header">
-            <div class="row">
+            <div class="row header-navbar">
                 <!-- search -->
                 <?php
                 include_once './chucnang/timkiem/timkiem.php';
