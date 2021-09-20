@@ -1,72 +1,77 @@
-﻿<?php  
-    if(isset($_SESSION['giohang'])){
-        $arrid=array();
-        foreach ($_SESSION['giohang'] as $id_sp => $sl) {
-            $arrid[]=$id_sp;
-        }
-        $strId=implode(',', $arrid);
-        $sql="SELECT * FROM sanpham WHERE id_sp IN($strId) ORDER BY id_sp DESC";
-        $query=mysqli_query($conn,$sql);
+﻿<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+if (isset($_SESSION['giohang'])) {
+    $arrid = array();
+    foreach ($_SESSION['giohang'] as $id_sp => $sl) {
+        $arrid[] = $id_sp;
     }
+    $strId = implode(',', $arrid);
+    $sql = "SELECT * FROM sanpham WHERE id_sp IN($strId) ORDER BY id_sp DESC";
+    $query = mysqli_query($conn, $sql);
+}
 ?>
 
 <div id="checkout">
-<h2 class="h2-bar">xác nhận hóa đơn thanh toán</h2>
-<table class="table table-bordered">
-    <tr>
-    <thead>
-    <th>tên sản phẩm</th>
-    <th>giá</th>
-    <th>số lượng</th>
-    <th>thành tiền</th>
-    </thead>
-    </tr>
+    <h2 class="h2-bar">xác nhận hóa đơn thanh toán</h2>
+    <table class="table table-bordered">
+        <tr>
+            <thead>
+                <th>tên sản phẩm</th>
+                <th>giá</th>
+                <th>số lượng</th>
+                <th>thành tiền</th>
+            </thead>
+        </tr>
 
-    <?php  
-        $totalPriceAll=0;
-        while ($row=mysqli_fetch_array($query)) {
-            $totalPrice=$row['gia_sp']*$_SESSION['giohang'][$row['id_sp']];
-    ?>
-    <tr>
-        <td><?php echo $row['ten_sp']; ?></td>
-        <td><span><?php echo number_format($row['gia_sp']); ?></span></td>
-        <td><?php echo $_SESSION['giohang'][$row['id_sp']]; ?></td>
-        <td><span><?php echo number_format($totalPrice); ?></span></td>
-    </tr>
-    <?php
-        $totalPriceAll+=$totalPrice;  
+        <?php
+        $totalPriceAll = 0;
+        while ($row = mysqli_fetch_array($query)) {
+            $totalPrice = $row['gia_sp'] * $_SESSION['giohang'][$row['id_sp']];
+        ?>
+            <tr>
+                <td><?php echo $row['ten_sp']; ?></td>
+                <td><span><?php echo number_format($row['gia_sp']); ?></span></td>
+                <td><?php echo $_SESSION['giohang'][$row['id_sp']]; ?></td>
+                <td><span><?php echo number_format($totalPrice); ?></span></td>
+            </tr>
+        <?php
+            $totalPriceAll += $totalPrice;
         }
-    ?>
-    <tr>
-        <td>Tổng giá trị hóa đơn:</td>
-        <td colspan="2"></td>
-        <td><b><span><?php echo number_format($totalPriceAll); ?></span></b></td>
-    </tr>
-</table>
+        ?>
+        <tr>
+            <td>Tổng giá trị hóa đơn:</td>
+            <td colspan="2"></td>
+            <td><b><span><?php echo number_format($totalPriceAll); ?></span></b></td>
+        </tr>
+    </table>
 </div>
-<?php  
-    if(isset($_POST['submit'])){
-        $ten=$_POST['name'];
-        $email=$_POST['mail'];
-        $sdt=$_POST['mobi'];
-        $diachi=$_POST['add'];
-        if (isset($ten)&&isset($email)&&isset($sdt)&&isset($diachi)) { 
-            if(isset($_SESSION['giohang'])){
-                $arrid=array();
-                foreach ($_SESSION['giohang'] as $id_sp => $sl) {
-                    $arrid[]=$id_sp;
-                }
-                $strId=implode(',', $arrid);
-                $sql="SELECT * FROM sanpham WHERE id_sp IN($strId) ORDER BY id_sp DESC";
-                $query=mysqli_query($conn,$sql);
+<?php
+if (isset($_POST['submit'])) {
+    $ten = $_POST['name'];
+    $email = $_POST['mail'];
+    $sdt = $_POST['phone'];
+    $diachi = $_POST['address'];
+    if (isset($ten) && isset($email) && isset($sdt) && isset($diachi)) {
+        if (isset($_SESSION['giohang'])) {
+            $arrid = array();
+            foreach ($_SESSION['giohang'] as $id_sp => $sl) {
+                $arrid[] = $id_sp;
             }
-        $strBody="";
-                // Thông tin Khách hàng
+            $strId = implode(',', $arrid);
+            $sql = "SELECT * FROM sanpham WHERE id_sp IN($strId) ORDER BY id_sp DESC";
+            $query = mysqli_query($conn, $sql);
+        }
+        $strBody = "";
+        // Thông tin Khách hàng
         $strBody = '<p>
-            <b>Khách hàng:</b> '.$ten.'<br />
-            <b>Email:</b> '.$mail.'<br />
-            <b>Điện thoại:</b> '.$dt.'<br />
-            <b>Địa chỉ:</b> '.$diachi.'
+            <b>Khách hàng:</b> ' . $ten . '<br />
+            <b>Email:</b> ' . $email . '<br />
+            <b>Điện thoại:</b> ' . $sdt . '<br />
+            <b>Địa chỉ:</b> ' . $diachi . '
         </p>';
         // Danh sách Sản phẩm đã mua
         $strBody .= '<table border="1px" cellpadding="10px" cellspacing="1px" width="100%">
@@ -80,90 +85,95 @@
                 <td width="20%"><b>Thành tiền</b></td>
             </tr>';
 
-            $totalPriceAll = 0;
-            while($row = mysqli_fetch_array($query)){
-            $totalPrice = $row['gia_sp']*$_SESSION['giohang'][$row['id_sp']];
+        $totalPriceAll = 0;
+        while ($row = mysqli_fetch_array($query)) {
+            $totalPrice = $row['gia_sp'] * $_SESSION['giohang'][$row['id_sp']];
 
             $strBody .= '<tr>
-                <td class="prd-name">'.$row['ten_sp'].'</td>
-                <td class="prd-price"><font color="#C40000">'.$row['gia_sp'].' VNĐ</font></td>
-                <td class="prd-number">'.$_SESSION['giohang'][$row['id_sp']].'</td>
-                <td class="prd-total"><font color="#C40000">'.$totalPrice.' VNĐ</font></td>
+                <td class="prd-name">' . $row['ten_sp'] . '</td>
+                <td class="prd-price"><font color="#C40000">' . number_format($row['gia_sp']) . ' VNĐ</font></td>
+                <td class="prd-number">' . $_SESSION['giohang'][$row['id_sp']] . '</td>
+                <td class="prd-total"><font color="#C40000">' . number_format($totalPrice) . ' VNĐ</font></td>
             </tr>';
 
             $totalPriceAll += $totalPrice;
-            }
+        }
 
-            $strBody .= '<tr>
+        $strBody .= '<tr>
                 <td class="prd-name">Tổng giá trị hóa đơn là:</td>
                 <td colspan="2"></td>
-                <td class="prd-total"><b><font color="#C40000">'.$number_format($totalPriceAll).' VNĐ</font></b></td>
+                <td class="prd-total"><b><font color="#C40000">' . number_format($totalPriceAll) . ' VNĐ</font></b></td>
             </tr>
         </table>';
 
         $strBody .= '<p align="justify">
             <b>Quý khách đã đặt hàng thành công!</b><br />
-            • Sản phẩm của Quý khách sẽ được chuyển đến Địa chỉ có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
-            • Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng.<br />
-            <b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
+            • Sản phẩm của quý khách sẽ được chuyển đến địa chỉ có trong phần thông tin Khách hàng của chúng tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
+            • Nhân viên giao hàng sẽ liên hệ với quý khách qua SĐT trước khi giao hàng 24 tiếng.<br />
+            <b><br />Cám ơn quý khách đã sử dụng sản phẩm của công ty chúng tôi!</b>
         </p>';
 
-        // Thiết lập SMTP Server
-        require("class.phpmailer.php"); // nạp thư viện
-        $mailer = new PHPMailer(); // khởi tạo đối tượng
-        $mailer->IsSMTP(); // gọi class smtp để đăng nhập
-        $mailer->CharSet="utf-8"; // bảng mã unicode
+        // import thư viện gửi mail
+        require 'includes/Exception.php';
+        require 'includes/PHPMailer.php';
+        require 'includes/SMTP.php';
 
-        //Đăng nhập Gmail
-        $mailer->SMTPAuth = true; // Đăng nhập
-        $mailer->SMTPSecure = "ssl"; // Giao thức SSL
-        $mailer->Host = "smtp.gmail.com"; // SMTP của GMAIL
+        $mailer = new PHPMailer(true);; // khởi tạo đối tượng
+        $mailer->IsSMTP(); // gọi class smtp để đăng nhập
+        $mailer->CharSet = "utf-8"; // bảng mã unicode
+
+        //Khởi tạo phương thức qua gmail
+        $mailer->SMTPAuth = true; // xác thực
+        $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  // Giao thức SSL || TLS
+        $mailer->Host = "smtp.gmail.com"; // SMTP của GMAIL mặc định
         $mailer->Port = 465; // cổng SMTP
 
         // Phải chỉnh sửa lại
-        $mailer->Username = "vietpro.edu.vn22@gmail.com"; // GMAIL username
-        $mailer->Password = "*vietpro.edu.vn22"; // GMAIL password
-        $mailer->AddAddress($email, $ten); //email người nhận, $email và $ten là 2 biến đc gán bởi $_POST lấy từ trong form
-        $mailer->AddCC("vietpro.edu.vn22@gmail.com", "Admin Vietpro Shop"); // gửi thêm một email cho Admin
+        $mailer->Username = "test.97er@gmail.com"; // tên gmail của bạn
+        $mailer->Password = "yourPassword"; // mật khẩu gmail của bạn
+        $mailer->setFrom('test.97er@gmail.com', 'XuanChinh Mobile'); // mail và tên người gửi 
+        
+        //email người nhận, $email và $ten là 2 biến đc gán bởi $_POST lấy từ trong form
+        $mailer->addAddress($email, $ten); 
 
-        // Chuẩn bị gửi thư nào
-        $mailer->FromName = 'Vietpro Shop'; // tên người gửi
-        $mailer->From = 'vietpro.edu.vn22@gmail.com'; // mail người gửi
-        $mailer->Subject = 'Hóa đơn xác nhận mua hàng từ Vietpro Shop';
-        $mailer->IsHTML(TRUE); //Bật HTML không thích thì false
+        // gửi thêm một email cho chính bạn
+        $mailer->AddCC("test.97er@gmail.com", "XuanChinh Mobile"); 
+
+        $mailer->Subject = 'Hóa đơn xác nhận mua hàng từ XuanChinh Mobile'; // title mail
+        $mailer->IsHTML(TRUE); //Bật định mail gửi đi dạng HTML
 
         // Nội dung lá thư
         $mailer->Body = $strBody;
 
         //gửi mail
-        if(!$mailer->Send()){
+        if (!$mailer->Send()) {
             //gửi không được đưa thông báo lôi
-            echo "Lỗi gửi email: ".$mailer->ErrorInfo;
-        }else{
+            echo "Lỗi gửi email: " . $mailer->ErrorInfo;
+        } else {
             //gửi thành công
-            header('location: index.php?page_layout=hoanthanh'); 
-        }
+            header('location: index.php?page_layout=hoanthanh');
         }
     }
+}
 ?>
 <div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
-<form method="post">
-    <div class="form-group">
-        <label>Tên khách hàng</label>
-        <input required type="text" class="form-control" name="name">
-    </div>
-    <div class="form-group">
-        <label>Địa chỉ Email</label>
-        <input required type="text" class="form-control" name="mail">
-    </div>
-    <div class="form-group">
-        <label>Số Điện thoại</label>
-        <input required type="text" class="form-control" name="mobi">
-    </div>
-    <div class="form-group">
-        <label>Địa chỉ nhận hàng</label>
-        <input required type="text" class="form-control" name="add">
-    </div>
-    <button class="btn btn-info" name="submit">Mua hàng</button>
-</form>
+    <form method="post">
+        <div class="form-group">
+            <label>Tên khách hàng</label> <span style="color: red;">*</span>
+            <input required type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group">
+            <label>Địa chỉ Email</label> <span style="color: red;">*</span>
+            <input required type="text" class="form-control" name="mail">
+        </div>
+        <div class="form-group">
+            <label>Số Điện thoại</label> <span style="color: red;">*</span>
+            <input required type="text" class="form-control" name="phone">
+        </div>
+        <div class="form-group">
+            <label>Địa chỉ nhận hàng</label> <span style="color: red;">*</span>
+            <input required type="text" class="form-control" name="address">
+        </div>
+        <button class="btn btn-info" name="submit">Mua hàng</button>
+    </form>
 </div>

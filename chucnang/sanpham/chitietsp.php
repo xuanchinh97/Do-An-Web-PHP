@@ -46,15 +46,15 @@ if (isset($_POST['submit'])) {
     <h2 class="h2-bar">Bình luận sản phẩm</h2>
     <form method="post" action="index.php?page_layout=chitietsp&id_sp=<?php echo $id_sp; ?>">
         <div class="form-group">
-            <label>Tên</label>
+            <label>Tên</label> <span style="color: red;">*</span>
             <input type="text" name="ten" required="" class="form-control" placeholder="Tên">
         </div>
         <div class="form-group">
-            <label>Điện thoại</label>
+            <label>Điện thoại</label> <span style="color: red;">*</span>
             <input type="text" name="dien_thoai" required="" class="form-control" placeholder="Điện thoại">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Nội dung</label>
+            <label for="exampleInputPassword1">Nội dung</label> <span style="color: red;">*</span>
             <textarea class="form-control" name="binh_luan" required="" placeholder="Nội dung bình luận" maxlength="65525" rows="4"></textarea>
         </div>
         <button type="submit" name="submit" class="btn btn-danger">Bình luận</button>

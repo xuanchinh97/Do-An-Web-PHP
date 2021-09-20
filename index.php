@@ -204,7 +204,7 @@ include_once './cauhinh/ketnoi.php';
                     <img src="./images/copyright.png" class="footer__coppyright-img" alt="đã đăng kí bộ công thương">
 
                     <p><b>Địa chỉ:</b> 220 Nguyễn Khoái, Hai Bà Trưng, Hà Nội | <b>Hotline</b> 0968 528 230</p>
-                    <h3 class="footer__copyright-text">
+                    <h3 class="footer__copyright-text">©
                         <script>
                             document.write(new Date().getFullYear())
                         </script>-Power by

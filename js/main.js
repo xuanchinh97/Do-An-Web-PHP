@@ -21,8 +21,7 @@ function topFunction() {
 
 // button show/hide chi tiết sản phẩm
 const toggleContent = document.querySelector(".product-info--continue")
-
-console.log("toggleContent");
+console.warn("xin chòa đây là chinhdz!!!")
 toggleContent.addEventListener("click", content)
 toggleContent.addEventListener("click", content)
 
