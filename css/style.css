@@ -374,8 +374,7 @@ body {
     background: var(--color-white);
   }
   #search {
-    border-bottom: 1px solid var(--color-border);
-    border-right: none;
+border: none;
   }
   #y-cart-main {
     top: 0;
