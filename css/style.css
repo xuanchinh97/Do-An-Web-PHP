@@ -441,3 +441,8 @@ transform: scale(1.1);
   color: var(--color-pri);
   font-size: 1.4rem;
 }
+/* //chat box  */
+iframe {
+  bottom: 60px !important;
+    margin: 0px 4px !important;
+}

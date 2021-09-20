@@ -42,7 +42,7 @@
         <div class="col-md-3 col-sm-6 product-item text-center">
             <a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row['id_sp']; ?>"><img width="190px" height="160px" src="quantri/anh/<?php echo $row['anh_sp']; ?>"></a>
             <h3><a href="index.php?page_layout=chitietsp&id_sp=<?php echo $row['id_sp']; ?>"><?php echo $row['ten_sp']; ?></a></h3>
-            <p class="price">Giá: <?php echo $row['gia_sp']; ?> VNĐ</p>
+            <p class="price">Giá: <?php echo number_format($row['gia_sp']); ?> VNĐ</p>
         </div>
         <?php  
             }

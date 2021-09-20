@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include_once './cauhinh/ketnoi.php';
-// if (!isset($_SESSION['email'])) {
+
 ?>
 <html>
 
@@ -23,7 +23,7 @@ include_once './cauhinh/ketnoi.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- style css  -->
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/main.js" defer ></script>
+    <script src="./js/main.js" defer></script>
     <?php
     if (isset($_GET['page_layout'])) {
         switch ($_GET['page_layout']) {
@@ -134,8 +134,6 @@ include_once './cauhinh/ketnoi.php';
 
                         ?>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -188,14 +186,14 @@ include_once './cauhinh/ketnoi.php';
                                         Facebook</a>
                                 </li>
                                 <li class="footer__item">
+                                    <a href="https://www.facebook.com/xuanchinhmobileshop/" target="_blank" class="footer__item__link underline">
+                                        <i class="fab fa-facebook-square"></i>
+                                        Fanpage</a>
+                                </li>
+                                <li class="footer__item">
                                     <a href="https://www.instagram.com/txcka35" target="_blank" class="footer__item__link underline">
                                         <i class="fab fa-instagram"></i>
                                         Instagram</a>
-                                </li>
-                                <li class="footer__item">
-                                    <a href="https://www.linkedin.com/in/chinhdz97" target="_blank" class="footer__item__link underline">
-                                        <i class="fab fa-linkedin"></i>
-                                        LinkedIn</a>
                                 </li>
                             </ul>
                         </div>
@@ -215,13 +213,12 @@ include_once './cauhinh/ketnoi.php';
         </div>
         <!-- End Footer -->
     </div>
+    
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     
+    <!-- chat bot, don't use can delete  -->
+    <script type="text/javascript" src="https://ahachat.com/customer-chats/customer_chat_khTHhHdULx614813d86247b.js"></script>
+
 </body>
 
 </html>
-<?php
-// } else {
-//     header('location: ./quantri/quantri.php');
-// }
-?>

@@ -82,7 +82,7 @@
         </form>
     <?php
     } else {
-        echo '<script>alert("không có sản phẩm nào trong giả hàng!");</script>';
+        echo '<script>alert("không có sản phẩm nào trong giỏ hàng!");</script>';
     }
     ?>
 </div>
