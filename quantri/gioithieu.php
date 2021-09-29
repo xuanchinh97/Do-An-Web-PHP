@@ -82,16 +82,51 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Giới thiệu</div>
+            <div class="panel-heading">Thống Kê Chi Tiết</div>
             <div class="panel-body">
                 <div class="canvas-wrapper">
-                    <p>Website <a href="../index.php">xuanchinhmobile</a> được thành lập vào ngày 07/09/2021, trong lĩnh vực kinh doanh smart phone. Với mong muốn đưa tận tay khách hàng những sản phẩm chính hãng, đảm bảo chất lượng cùng hàng ngàn ưu đãi.
-                    </p>
-                    <p>Phương châm kinh doanh của <a href="../index.php">xuanchinhmobile</a> là luôn đạt chữ <b>tín</b> lên hàng đầu.</p>
-
+                    <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!--/.row-->
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Đơn đặt hàng</h4>
+                <div class="easypiechart" id="easypiechart-blue" data-percent="100"><span class="percent">100%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Bình luận</h4>
+                <div class="easypiechart" id="easypiechart-orange" data-percent="50"><span class="percent">50%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Khách hàng mới</h4>
+                <div class="easypiechart" id="easypiechart-teal" data-percent="79"><span class="percent">79%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Lượt truy cập</h4>
+                <div class="easypiechart" id="easypiechart-red" data-percent="97"><span class="percent">97%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
