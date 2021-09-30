@@ -1,6 +1,6 @@
-<?php  
-    $sql="SELECT * FROM dmsanpham ORDER BY ten_dm ASC";
-    $query= mysqli_query($conn,$sql);
+<?php
+$sql = "SELECT * FROM dmsanpham ORDER BY ten_dm ASC";
+$query = mysqli_query($conn, $sql);
 ?>
 
 <div id="menu-but" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -11,12 +11,12 @@
 <div id="menu" class="sidebar collapse navbar-collapse">
     <h2 class="h2-bar">danh mục sản phẩm</h2>
     <ul>
-        <?php  
-            while($row=mysqli_fetch_array($query)) {
+        <?php
+        while ($row = mysqli_fetch_array($query)) {
         ?>
-        <li><a href="index.php?page_layout=danhsachsp&id_dm=<?php echo $row['id_dm']; ?>"><?php echo $row['ten_dm']; ?></a></li>
-        <?php  
-            }
+            <li><a href="index.php?page_layout=danhsachsp&id_dm=<?php echo $row['id_dm']; ?>"><?php echo $row['ten_dm']; ?></a></li>
+        <?php
+        }
         ?>
     </ul>
 </div>
