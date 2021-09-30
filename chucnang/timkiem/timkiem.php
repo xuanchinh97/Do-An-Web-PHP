@@ -11,7 +11,7 @@
 	}
 </script>
 <!-- search -->
-<div id="search" class="col-md-4 col-sm-12 col-xs-12">
+<div id="search" class="col-md-4 col-sm-12 col-xs-7">
     <form method="post" name="sform" action="index.php?page_layout=danhsachtimkiem">
         <input type="submit" name="submit" value=""><i class="fas fa-search search-icon"></i>
         <input onfocus="searchFocus();" onblur="searchBlur();" type="text" name="stext" value="Tìm kiếm sản phẩm...">

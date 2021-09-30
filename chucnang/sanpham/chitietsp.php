@@ -28,8 +28,10 @@ $row = mysqli_fetch_array($query);
     <!-- <div class="product-info--continue ">Xem thêm <i class="fas fa-chevron-down"></i></div> -->
     <span class="product-info--continue ">Xem Thêm <i class="fas fa-chevron-down"></i></span>
 </div>
+
 <?php
 if (isset($_POST['submit'])) {
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
     $ten = $_POST['ten'];
     $dien_thoai = $_POST['dien_thoai'];
     $binh_luan = $_POST['binh_luan'];

@@ -34,9 +34,9 @@ if (isset($_SESSION['giohang'])) {
         ?>
             <tr>
                 <td><?php echo $row['ten_sp']; ?></td>
-                <td><span><?php echo number_format($row['gia_sp']); ?></span></td>
+                <td><span><?php echo number_format($row['gia_sp']); ?> đ</span></td>
                 <td><?php echo $_SESSION['giohang'][$row['id_sp']]; ?></td>
-                <td><span><?php echo number_format($totalPrice); ?></span></td>
+                <td><span><?php echo number_format($totalPrice); ?> đ</span></td>
             </tr>
         <?php
             $totalPriceAll += $totalPrice;
@@ -45,7 +45,7 @@ if (isset($_SESSION['giohang'])) {
         <tr>
             <td>Tổng giá trị hóa đơn:</td>
             <td colspan="2"></td>
-            <td><b><span><?php echo number_format($totalPriceAll); ?></span></b></td>
+            <td><b><span><?php echo number_format($totalPriceAll); ?> đ</span></b></td>
         </tr>
     </table>
 </div>

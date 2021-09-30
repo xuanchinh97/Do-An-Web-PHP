@@ -1,34 +1,16 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
 
-RewriteRule "index.html" "index.php"
-RewriteRule "^([a-zA-Z0-9]+).html$" "index.php?page_layout=$1"
-RewriteRule "^san-pham/([0-9]+)/([a-zA-Z0-9-]+).html$" "/index.php?page_layout=chitietsp&id_sp=$1&ten_sp=$2"
+    RewriteEngine On
 
-; # .php - .html
-; RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
-; RewriteRule ^(.*).html$ $1.php [R=301,L]
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-; #Thêm / vào cuối URL
-
-; RewriteBase /
-
-; RewriteCond %{REQUEST_FILENAME} !-f
-
-; RewriteCond %{REQUEST_URI} !#
-
-; RewriteCond %{REQUEST_URI} !(.*)/$
-
-; RewriteRule ^(.*)$ http://domain.com/$1/ [L,R=301]
-
-; # Bảo vệ file dùng .htaccess
-
-; <files .htaccess="">
-
-; order allow,deny
-
-; deny from all
-
-; </files>
-
-; RewriteCond %{HTTPS} off
-; RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

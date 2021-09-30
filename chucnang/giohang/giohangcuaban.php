@@ -26,7 +26,7 @@
             </div>
             <ul class="header-cart-list">
                 <li class="header-cart-item">
-                    <img src="../../quantri/anh/<?php echo $row['anh_sp']; ?>" alt="product photo" class="header-cart-item__img">
+                    <img src="./quantri/anh/<?php echo $row['anh_sp']; ?>" alt="product photo" class="header-cart-item__img">
                     <h5 class="header-cart-item__title"><?php echo $row['ten_sp']; ?></h5>
                     <span class="header-car-item__price"><?php echo number_format($row['gia_sp']); ?> đ</span>
                 </li>
@@ -43,8 +43,8 @@
             </div>
     </div>
 <?php } else { ?>
-
-    <img class="cart-empty--img" src="../../images/empty-cart.png" alt="">
+    <img class="cart-empty--img" src="./images/empty-cart.png" alt="giỏ hàng trống">
 <?php } ?>
+
 
 </div>

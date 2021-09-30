@@ -1,6 +1,9 @@
 #pagination {
   text-align: right;
 }
+ul.pagination {
+  margin-right: 12px;
+}
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   border-top-left-radius: 0;

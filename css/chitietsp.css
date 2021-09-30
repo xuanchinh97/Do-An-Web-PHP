@@ -72,7 +72,7 @@
   padding: 0;
 }
 ul.pagination {
-  margin: 0;
+  margin-right: 25px;
 }
 #pagination {
   text-align: right;
