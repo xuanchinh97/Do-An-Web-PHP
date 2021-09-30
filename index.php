@@ -58,19 +58,9 @@ include_once './cauhinh/ketnoi.php';
         <!-- Header -->
         <div id="header">
             <div class="row header-navbar">
-                <!-- search -->
-                <?php
-                include_once './chucnang/timkiem/timkiem.php';
-                ?>
-                <!-- end search -->
-                <?php
-                include_once './chucnang/login/login.php';
-                ?>
-                <!-- y-cart -->
-                <?php
-                include_once './chucnang/giohang/giohangcuaban.php';
-                ?>
-                <!-- end y-cart -->
+                <?php include_once './chucnang/timkiem/timkiem.php'; ?>
+                <?php include_once './chucnang/login/login.php'; ?>
+                <?php include_once './chucnang/giohang/giohangcuaban.php'; ?>
             </div>
         </div>
         <!-- End Header -->
@@ -129,6 +119,9 @@ include_once './cauhinh/ketnoi.php';
                                 case 'hoanthanh':
                                     include_once './chucnang/giohang/hoanthanh.php';
                                     break;
+                                case 'baohanh':
+                                    include_once './chucnang/baohanh/baohanh.php';
+                                    break;
                                 case 'huongdanmuahang':
                                     include_once './chucnang/huongdanmuahang/huongdanmuahang.php';
                                     break;
@@ -164,7 +157,7 @@ include_once './cauhinh/ketnoi.php';
                             <h3 class="footer-heading">hỏi đáp</h3>
                             <ul class="footer__list">
                                 <li class="footer__item">
-                                    <a href="#" class="footer__item__link underline">Trung Tâm Trợ Giúp</a>
+                                    <a href="index.php?page_layout=baohanh" class="footer__item__link underline">Chính Sách Bảo Hành</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="index.php?page_layout=huongdanmuahang" class="footer__item__link underline">Hướng Dẫn Mua Hàng</a>

@@ -16,6 +16,7 @@ h2 .skeyword {
   text-align: right;
   margin-right: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 #pagination span {
@@ -25,7 +26,10 @@ h2 .skeyword {
 #pagination a {
   text-decoration: none;
   color: var(--color-black);
+  background-color: var(--color-pri);
+  border: none;
 }
 
-#pagination a span {
+ul.pagination {
+  margin-right: 12px;
 }

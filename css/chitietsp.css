@@ -8,7 +8,7 @@
   margin: 0 0 20px 0;
 }
 #product p span.sl {
-  width: 150px;
+  width: 120px;
   height: auto;
   min-height: 25px;
   font-weight: bold;
@@ -37,6 +37,11 @@
   margin-top: 15px;
   padding: 20px;
 }
+
+#prd-details img {
+  width: 100%;
+}
+
 #comment {
   padding: 15px 0;
 }
