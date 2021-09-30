@@ -1,4 +1,5 @@
-//Get the button
+console.warn("hi, my name Chinhdz!!!")
+
 var mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -21,9 +22,9 @@ function topFunction() {
 
 // button show/hide chi tiết sản phẩm
 const toggleContent = document.querySelector(".product-info--continue")
-console.warn("xin chòa đây là chinhdz!!!")
-toggleContent.addEventListener("click", content)
-toggleContent.addEventListener("click", content)
+if(toggleContent) {
+    toggleContent.addEventListener("click", content)
+}
 
 function content() {
     const content = document.querySelector(".product-info__content")

@@ -10,11 +10,13 @@ include_once './cauhinh/ketnoi.php';
     <title>Xuân Chinh Mobile</title>
     <meta property="og:type" content="website">
     <meta property="og:title" content="xuanchinh mobile - điện thoại chính hãng">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+    <meta property="og:url" content="https://xuanchinhmobile.cf/">
+    <meta property="og:image" content="./images/logo.png">
     <meta property="og:description" content="Điện thoại chính hãng, Với phương châm uy tín tạo nên thương hiệu, xuanchinh mobile sẽ đem đến cho bạn những trải nghiệm tốt nhất">
     <link rel="shortcut icon" href="./images/faicon.jpg" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- bootstrap jquery  -->
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
     <script src="./js/jquery-3.1.1.min.js"></script>
@@ -127,6 +129,12 @@ include_once './cauhinh/ketnoi.php';
                                 case 'hoanthanh':
                                     include_once './chucnang/giohang/hoanthanh.php';
                                     break;
+                                case 'huongdanmuahang':
+                                    include_once './chucnang/huongdanmuahang/huongdanmuahang.php';
+                                    break;
+                                case 'gioithieu':
+                                    include_once './chucnang/gioithieu/gioithieu.php';
+                                    break;
                             }
                         } else {
                             include_once './chucnang/sanpham/sanpham.php';
@@ -159,7 +167,7 @@ include_once './cauhinh/ketnoi.php';
                                     <a href="#" class="footer__item__link underline">Trung Tâm Trợ Giúp</a>
                                 </li>
                                 <li class="footer__item">
-                                    <a href="#" class="footer__item__link underline">Hướng Dẫn Mua Hàng</a>
+                                    <a href="index.php?page_layout=huongdanmuahang" class="footer__item__link underline">Hướng Dẫn Mua Hàng</a>
                                 </li>
                             </ul>
                         </div>
@@ -167,10 +175,10 @@ include_once './cauhinh/ketnoi.php';
                             <h3 class="footer-heading">Về Website</h3>
                             <ul class="footer__list">
                                 <li class="footer__item">
-                                    <a href="#" class="footer__item__link underline">Giới Thiệu Về XuanChinh Mobile</a>
+                                    <a href="index.php?page_layout=gioithieu" class="footer__item__link underline">Giới Thiệu Về XuanChinh Mobile</a>
                                 </li>
                                 <li class="footer__item">
-                                    <a href="#" class="footer__item__link underline">Tuyển Dụng</a>
+                                    <a href="https://www.facebook.com/xuanchinhmobileshop/" class="footer__item__link underline">Tuyển Dụng</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#" class="footer__item__link underline">Điều Khoản website</a>
@@ -213,9 +221,9 @@ include_once './cauhinh/ketnoi.php';
         </div>
         <!-- End Footer -->
     </div>
-    
+
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-    
+
     <!-- chat bot, don't use can delete  -->
     <script type="text/javascript" src="https://ahachat.com/customer-chats/customer_chat_khTHhHdULx614813d86247b.js"></script>
 
