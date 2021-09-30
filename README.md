@@ -22,7 +22,7 @@
 	$dbhost='localhost'; // để mặc định
 	$dbuser='root';	     // tên user trong mysql, mặc định thường là root
 	$dbpass='';	     // mật khẩu của user bên trên nếu có thì thêm vào 
-	$dbname='mobileshop'; // tên database vửa tạo bên trên
+	$dbname='shopdienthoai'; // tên database vửa tạo bên trên
 ```
 
 - Config file  ketnoi.php trong thư mục quantri\ketnoi.php
