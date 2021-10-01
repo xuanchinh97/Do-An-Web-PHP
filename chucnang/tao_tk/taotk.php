@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $mat_khau = $_POST['mat_khau'];
     if (isset($email) && isset($mat_khau)) {
-        $sql = "INSERT INTO thanhvien(email,mat_khau,quyen_truy_cap) VALUES('$email','$mat_khau','1')";
+        $sql = "INSERT INTO thanhvien(email,mat_khau,quyen_truy_cap) VALUES('$email',MD5('$mat_khau'),'1')";
         $query = mysqli_query($conn, $sql);
         $_SESSION['email'] = $email;
         $_SESSION['pass'] = $mat_khau;

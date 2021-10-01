@@ -2,8 +2,11 @@
 ob_start();
 session_start();
 include_once './ketnoi.php';
+$result = mysqli_query($conn, "SELECT * FROM thanhvien WHERE quyen_truy_cap = 2");
+$row = mysqli_fetch_array($result);
 
-if ($_SESSION['email'] == 'admin@gmail.com' && $_SESSION['pass'] == 'admin') {
+// chỉ truy cập được thành viên đầu tiên có quyền truy cập = 2
+if ($_SESSION['email'] == $row['email'] && $_SESSION['pass'] == $row['mat_khau']) {
 ?>
     <!DOCTYPE html>
     <html>
@@ -22,10 +25,6 @@ if ($_SESSION['email'] == 'admin@gmail.com' && $_SESSION['pass'] == 'admin') {
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
 
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
         <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     </head>
 

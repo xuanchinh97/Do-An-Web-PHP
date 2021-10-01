@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 30, 2021 lúc 11:32 AM
+-- Thời gian đã tạo: Th10 01, 2021 lúc 10:21 AM
 -- Phiên bản máy phục vụ: 8.0.25
 -- Phiên bản PHP: 8.0.6
 
@@ -166,8 +166,8 @@ CREATE TABLE `thanhvien` (
 --
 
 INSERT INTO `thanhvien` (`id_thanhvien`, `email`, `mat_khau`, `quyen_truy_cap`) VALUES
-(1, 'admin@gmail.com', 'admin', 2),
-(26, 'user', 'user', 1);
+(34, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 2),
+(38, 'a@gmail.com', '0cc175b9c0f1b6a831c399e269772661', 2);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -236,7 +236,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `thanhvien`
 --
 ALTER TABLE `thanhvien`
-  MODIFY `id_thanhvien` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_thanhvien` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

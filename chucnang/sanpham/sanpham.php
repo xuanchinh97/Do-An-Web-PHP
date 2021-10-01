@@ -21,7 +21,7 @@ $query = mysqli_query($conn, $sql);
 </div>
 
 <?php
-$sql2 = "SELECT * FROM sanpham ORDER BY id_sp ASC LIMIT 8";
+$sql2 = "SELECT * FROM sanpham ORDER BY id_sp DESC LIMIT 8";
 $query2 = mysqli_query($conn, $sql2);
 ?>
 

@@ -5,15 +5,15 @@ include_once './ketnoi.php';
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $pass = $_POST['mk'];
+    $pass = $_POST['pass'];
     if (isset($email) && isset($pass)) {
-        $sql = "SELECT *FROM thanhvien WHERE email='$email' and mat_khau='$pass'";
+        $sql = "SELECT *FROM thanhvien WHERE email='$email' and mat_khau= MD5('$pass')";
         $query = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($query);
         $rows = mysqli_num_rows($query);
         if ($rows > 0) {
             $_SESSION['email'] = $email;
-            $_SESSION['pass'] = $pass;
+            $_SESSION['pass'] = MD5($pass);
         } else {
             echo '<center class="alert alert-danger">Tài khoản không tồn tại hoặc bạn không có quyền truy cập!</center>';
         }
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 
 <head>
     <meta charset="utf-8">
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
                                     <input class="form-control" placeholder="Tài khoản E-mail" name="email" type="email" autofocus="" required="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Mật khẩu" name="mk" type="password" required="">
+                                    <input class="form-control" placeholder="Mật khẩu" name="pass" type="password" required="">
                                 </div>
                                 <div class="checkbox">
                                     <label>

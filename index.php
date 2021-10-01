@@ -4,7 +4,8 @@ session_start();
 include_once './cauhinh/ketnoi.php';
 
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 
 <head>
     <title>Xuân Chinh Mobile</title>

@@ -4,7 +4,7 @@ if (isset($_POST['submit'])) {
     $mat_khau = $_POST['mat_khau'];
     $quyen_truy_cap = $_POST['quyen_truy_cap'];
     if (isset($email) && isset($mat_khau) && isset($quyen_truy_cap)) {
-        $sql = "INSERT INTO thanhvien(email,mat_khau,quyen_truy_cap) VALUES('$email','$mat_khau','$quyen_truy_cap')";
+        $sql = "INSERT INTO thanhvien(email,mat_khau,quyen_truy_cap) VALUES('$email',MD5('$mat_khau'),'$quyen_truy_cap')";
         $query = mysqli_query($conn, $sql);
         header('location: quantri.php?page_layout=quanlytv');
     }

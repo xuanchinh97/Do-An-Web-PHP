@@ -6,14 +6,14 @@
         <div>“MIỄN PHÍ 1 ĐỔI 1 NẾU CÓ LỖI PHẦN CỨNG TRONG VÒNG 30 NGÀY ĐẦU TIÊN MUA HÀNG”.</div>
     </div>
     <div>
-        <h4>Quý khách vui lòng lưu ý 1 số nội dung sau:</h4>
+        <h4>- Quý khách vui lòng lưu ý 1 số nội dung sau:</h4>
         <ol>
             <li>Chương trình bảo hành bắt đầu có hiệu lực từ thời điểm xuanchinhmobile xuất hóa đơn cho Quý khách.</li>
             <li>Với mỗi dòng sản phẩm khác nhau sẽ có chính sách bảo hành khác nhau tùy theo chính sách của Hãng/Nhà cung cấp.</li>
         </ol>
     </div>
     <div>
-        <h4>Các trường hợp nằm ngoài chính sách bảo hành:</h4>
+        <h4>- Các trường hợp nằm ngoài chính sách bảo hành:</h4>
         <em><strong>Những trường hợp dưới đây sẽ không nằm trong chính sách bảo hành miễn phí của Nhà sản xuất:</strong></em>
         <ol>
             <li> Sản phẩm hết hạn bảo hành.</li>
@@ -37,7 +37,7 @@
         </ol>
     </div>
     <div>
-        <h4>Một số lưu ý trước khi bảo hành</h4>
+        <h4>- Một số lưu ý trước khi bảo hành</h4>
         <ol>
             <li> Trong quá trình thực hiện dịch vụ bảo hành, các nội dung lưu trữ trên sản phẩm của Quý khách sẽ bị xóa và định dạng lại. Do đó, Quý khách vui lòng tự sao lưu toàn bộ dữ liệu trong sản phẩm, đồng thời gỡ bỏ tất cả các thông tin cá nhân mà Quý khách muốn bảo mật. XuanChinh Mobile không chịu trách nhiệm đối với bất kỳ mất mát nào liên quan tới các chương trình phần mềm, dữ liệu hoặc thông tin nào khác lưu trữ trên sản phẩm bảo hành.</li>
             <li> Vui lòng tắt tất cả các mật khẩu bảo vệ, XuanChinh Mobile sẽ từ chối tiếp nhận bảo hành nếu thiết bị của bạn bị khóa bởi bất cứ phương pháp nào.</li>

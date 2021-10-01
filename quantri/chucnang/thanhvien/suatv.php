@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $mat_khau = $_POST['mat_khau'];
     $quyen_truy_cap = $_POST['quyen_truy_cap'];
     if (isset($email) && isset($mat_khau) && isset($quyen_truy_cap)) {
-        $sql = "UPDATE thanhvien SET email='$email',mat_khau='$mat_khau',quyen_truy_cap='$quyen_truy_cap' WHERE id_thanhvien=$id_thanhvien";
+        $sql = "UPDATE thanhvien SET email='$email',mat_khau=MD5('$mat_khau'),quyen_truy_cap='$quyen_truy_cap' WHERE id_thanhvien=$id_thanhvien";
         $query = mysqli_query($conn, $sql);
         header('location: quantri.php?page_layout=quanlytv');
     }
