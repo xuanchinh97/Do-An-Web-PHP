@@ -60,7 +60,7 @@ include_once './cauhinh/ketnoi.php';
         <div id="header">
             <div class="row header-navbar">
                 <?php include_once './chucnang/timkiem/timkiem.php'; ?>
-                <?php include_once './chucnang/login/login.php'; ?>
+                <?php include_once './chucnang/login/login.php'; ?>  <!-- log in bị ẩn css/ line 197 -->
                 <?php include_once './chucnang/giohang/giohangcuaban.php'; ?>
             </div>
         </div>
@@ -203,7 +203,7 @@ include_once './cauhinh/ketnoi.php';
                     <h4>xuanchinh mobile điện thoại cao cấp chính hãng</h4>
                     <img src="./images/copyright.png" class="footer__coppyright-img" alt="đã đăng kí bộ công thương">
 
-                    <p><b>Địa chỉ:</b> 220 Nguyễn Khoái, Hai Bà Trưng, Hà Nội | <b>Hotline</b> 0968 528 230</p>
+                    <p><b>Địa chỉ:</b> 220 Nguyễn Khoái, Hai Bà Trưng, Hà Nội | <b>Hotline:</b> 0968 999 999</p>
                     <h3 class="footer__copyright-text">©
                         <script>
                             document.write(new Date().getFullYear())

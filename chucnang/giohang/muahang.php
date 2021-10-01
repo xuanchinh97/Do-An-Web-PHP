@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
             <b>Quý khách đã đặt hàng thành công!</b><br />
             • Sản phẩm của quý khách sẽ được chuyển đến địa chỉ có trong phần thông tin Khách hàng của chúng tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
             • Nhân viên giao hàng sẽ liên hệ với quý khách qua SĐT trước khi giao hàng 24 tiếng.<br />
-            <b><br />Cám ơn quý khách đã sử dụng sản phẩm của công ty chúng tôi!</b>
+            <b><br />Cám ơn quý khách đã mua hàng!</b>
         </p>';
 
         // import thư viện gửi mail
@@ -129,20 +129,20 @@ if (isset($_POST['submit'])) {
         $mailer->Port = 465; // cổng SMTP
 
         // Phải chỉnh sửa lại
-        $mailer->Username = "test.97er@gmail.com"; // tên gmail của bạn
-        $mailer->Password = "yourPassword"; // mật khẩu gmail của bạn
-        $mailer->setFrom('test.97er@gmail.com', 'XuanChinh Mobile'); // mail và tên người gửi 
+        $mailer->Username = "txc.gio97@gmail.com"; // tên gmail của bạn
+        $mailer->Password = "fmirxvufiwbbqiky"; // mật khẩu gmail của bạn  (nên dùng mật khẩu ứng dụng, google để tìm hiểu)
+        $mailer->setFrom('txc.gio97@gmail.com', 'XuanChinh Mobile'); // mail và tên người gửi 
 
         //email người nhận, $email và $ten là 2 biến đc gán bởi $_POST lấy từ trong form
         $mailer->addAddress($email, $ten);
 
         // gửi thêm một email cho chính bạn
-        $mailer->AddCC("test.97er@gmail.com", "XuanChinh Mobile");
+        $mailer->AddCC("txc.gio97@gmail.com", "XuanChinh Mobile");
 
         $mailer->Subject = 'Hóa đơn xác nhận mua hàng từ XuanChinh Mobile'; // title mail
         $mailer->IsHTML(TRUE); //Bật định mail gửi đi dạng HTML
 
-        // Nội dung lá thư
+        // Nội dung lá thưz
         $mailer->Body = $strBody;
 
         //gửi mail
@@ -153,6 +153,7 @@ if (isset($_POST['submit'])) {
             //gửi thành công
             header('location: index.php?page_layout=hoanthanh');
         }
+        unset($_SESSION['giohang']);
     }
 }
 ?>
