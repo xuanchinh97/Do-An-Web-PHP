@@ -33,11 +33,11 @@ cấu hình tương tự bên trên
 
 - gmail: admin@gmail.com
 - pass: admin
+- pass sử dụng hàm băm MD5
 
 ** Lưu ý : mọi người chú ý cổng mà mình đang chạy trên localhost nhé
 - mặc định là cổng 8080 thì sẽ như vầy: http://localhost/
 - của mình để cổng 97 thì sẽ như vầy: http://localhost:97/
-- thay đổi gmail hoặc pass quản trị thì phải đổi lại trong phần quantri/chucnang/tên chức năng/xóa.chức năng
 
 ### Screenshot
 ![Screenshot](./images/rv1.png)
