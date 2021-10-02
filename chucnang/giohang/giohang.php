@@ -33,31 +33,33 @@
                 <!-- Product Item -->
                 <?php
                 $totalPriceAll = 0;
-                while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-                    $totalPrice = $row['gia_sp'] * $_SESSION['giohang'][$row['id_sp']];
+                if (is_array($query) || is_object($query)) {
+                    foreach ($query as $row) {
+                        $totalPrice = $row['gia_sp'] * $_SESSION['giohang'][$row['id_sp']];
                 ?>
-                    <tbody>
-                        <tr>
-                            <td data-th="Product">
-                                <div class="row">
-                                    <div class="col-sm-2 hidden-xs"><img src="./quantri/anh/<?php echo $row['anh_sp']; ?>" alt="..." class="img-responsive" /></div>
-                                    <div class="col-sm-10">
-                                        <h5><?php echo $row['ten_sp']; ?></h5>
+                        <tbody>
+                            <tr>
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-sm-2 hidden-xs"><img src="./quantri/anh/<?php echo $row['anh_sp']; ?>" alt="..." class="img-responsive" /></div>
+                                        <div class="col-sm-10">
+                                            <h5><?php echo $row['ten_sp']; ?></h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td data-th="Price"><?php echo number_format($row['gia_sp']); ?></td>
-                            <td data-th="Quantity">
-                                <input name="sl[<?php echo $row['id_sp']; ?>]" type="number" min="0" class="form-control text-center" value="<?php echo $_SESSION['giohang'][$row['id_sp']]; ?>">
-                            </td>
-                            <td data-th="Subtotal" class="text-center"><span><?php echo number_format($totalPrice); ?> ₫</span></td>
-                            <td class="actions" data-th="">
-                                <a href="./chucnang/giohang/xoahang.php?id_sp=<?php echo $row['id_sp']; ?>">Xóa</a>
-                            </td>
-                        </tr>
-                    </tbody>
+                                </td>
+                                <td data-th="Price"><?php echo number_format($row['gia_sp']); ?></td>
+                                <td data-th="Quantity">
+                                    <input name="sl[<?php echo $row['id_sp']; ?>]" type="number" min="0" class="form-control text-center" value="<?php echo $_SESSION['giohang'][$row['id_sp']]; ?>">
+                                </td>
+                                <td data-th="Subtotal" class="text-center"><span><?php echo number_format($totalPrice); ?> ₫</span></td>
+                                <td class="actions" data-th="">
+                                    <a href="./chucnang/giohang/xoahang.php?id_sp=<?php echo $row['id_sp']; ?>">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
                 <?php
-                    $totalPriceAll += $totalPrice;
+                        $totalPriceAll += $totalPrice;
+                    }
                 }
                 ?>
                 <!-- End Product Item -->
@@ -82,7 +84,8 @@
         </form>
     <?php
     } else {
-        echo '<script>alert("không có sản phẩm nào trong giỏ hàng!");</script>';
+        echo '<p style="color: red"> Chưa có sản phẩm nào trong giỏ hàng của bạn !! ';
+        echo '<a href="./index.php">Tiếp tục mua hàng</a>';
     }
     ?>
 </div>

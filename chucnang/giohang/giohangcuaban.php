@@ -19,17 +19,24 @@
             $strid = implode(',', $arrid);
             $sql = "SELECT * FROM sanpham WHERE id_sp IN($strid) ORDER BY id_sp DESC";
             $query = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_array($query, MYSQLI_ASSOC)
         ?>
             <div class="header-cart-header">
                 <span class="header-cart-title">Sản phẩm mới thêm</sp>
             </div>
             <ul class="header-cart-list">
-                <li class="header-cart-item">
-                    <img src="./quantri/anh/<?php echo $row['anh_sp']; ?>" alt="product photo" class="header-cart-item__img">
-                    <h5 class="header-cart-item__title"><?php echo $row['ten_sp']; ?></h5>
-                    <span class="header-car-item__price"><?php echo number_format($row['gia_sp']); ?> đ</span>
-                </li>
+                <?php
+                if (is_array($query) || is_object($query)) {
+                    foreach ($query as $row) {
+                ?>
+                        <li class="header-cart-item">
+                            <img src="./quantri/anh/<?php echo $row['anh_sp']; ?>" alt="product photo" class="header-cart-item__img">
+                            <h5 class="header-cart-item__title"><?php echo $row['ten_sp']; ?></h5>
+                            <span class="header-car-item__price"><?php echo number_format($row['gia_sp']); ?> đ</span>
+                        </li>
+                <?php
+                    }
+                }
+                ?>
             </ul>
             <div class="header-cart-footer">
                 <span class="header-cart-count-item">

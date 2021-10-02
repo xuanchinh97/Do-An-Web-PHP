@@ -139,12 +139,13 @@ body {
 .header-cart-list {
   padding: 0;
   margin: 0;
-  max-height: 56vh;
-  /* overflow-y: scroll;   */
+  max-height: 50vh;
+  margin-bottom: 10px;
+  overflow-y: scroll;  
 }
 
 .header-cart-item {
-  padding: 12px;
+  padding: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,6 +173,9 @@ body {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
+}
+.header-cart-item:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .cart-empty--img {
   width: 100%;
