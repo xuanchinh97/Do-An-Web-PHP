@@ -129,18 +129,18 @@ if (isset($_POST['submit'])) {
         $mailer->Port = 465; // cổng SMTP
 
         // Phải chỉnh sửa lại
-        $mailer->Username = "txc.gio97@gmail.com"; // tên gmail của bạn
+        $mailer->Username = "yourmail@gmail.com"; // tên gmail của bạn
         $mailer->Password = "fmirxvufiwbbqiky"; // mật khẩu gmail của bạn  (nên dùng mật khẩu ứng dụng, google để tìm hiểu)
-        $mailer->setFrom('txc.gio97@gmail.com', 'XuanChinh Mobile'); // mail và tên người gửi 
+        $mailer->setFrom('yourmail@gmail.com', 'XuanChinh Mobile'); // mail và tên người gửi 
 
         //email người nhận, $email và $ten là 2 biến đc gán bởi $_POST lấy từ trong form
         $mailer->addAddress($email, $ten);
 
         // gửi thêm một email cho chính bạn
-        $mailer->AddCC("txc.gio97@gmail.com", "XuanChinh Mobile");
+        $mailer->AddCC("yourmail@gmail.com", "XuanChinh Mobile");
 
         $mailer->Subject = 'Hóa đơn xác nhận mua hàng từ XuanChinh Mobile'; // title mail
-        $mailer->IsHTML(TRUE); //Bật định mail gửi đi dạng HTML
+        $mailer->IsHTML(TRUE); //Bật định dạng mail gửi đi dạng HTML
 
         // Nội dung lá thưz
         $mailer->Body = $strBody;
