@@ -13,10 +13,11 @@
 
 ### sử dụng
 
-- Vào phpmyadmin tạo csdl mới, đặt tên là: mobileshop
-- import file mobileshop.sql vào trong csdl vừa tạo
+- Vào phpmyadmin tạo csdl mới, đặt tên là: shopdienthoai
+- import file shopdienthoai.sql vào trong csdl vừa tạo
 
 - Config file  ketnoi.php trong thư mục cauhinh\ketnoi.php
+- Config file  ketnoi.php trong thư mục quantri\ketnoi.php
 
 ```bash
 	$dbhost='localhost'; // để mặc định
@@ -25,9 +26,6 @@
 	$dbname='shopdienthoai'; // tên database vửa tạo bên trên
 ```
 
-- Config file  ketnoi.php trong thư mục quantri\ketnoi.php
-
-cấu hình tương tự bên trên	
 
 ### truy cập trang quản trị
 
